@@ -14,7 +14,7 @@ func TypeValid(iface interface{}) bool {
 		return structValid(rValue.Interface())
 	}
 
-	if rType.Kind() == reflect.Ptr {
+	if rType.Kind() == reflect.Ptr { // normal point type like *int *float32 also would be reflect.Ptr
 		if rValue.Elem().Type().Kind() != reflect.Struct {
 			return false
 		}
